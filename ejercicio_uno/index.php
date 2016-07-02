@@ -6,11 +6,9 @@
 <body>
 		<form action="Registro.php" method="POST">
 			
-			Edad:  <input type="text" name="txtEdad"><br/>
-			Curso: <input type="text" name="txtCurso"><br/>
-			Ciudad: <input type="text" name="txtCiudad"><br/>
 			Nombre: <input type="text" name="txtNombre"><br/>
-			
+			Apellido:  <input type="text" name="txtApellido"><br/>
+			Curso: <input type="text" name="txtCurso"><br/>
 			
 			<input type="submit" name="Registrar" name="btnRegistrar">
 		</form>
