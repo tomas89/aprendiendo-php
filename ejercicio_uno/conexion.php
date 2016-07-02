@@ -4,11 +4,8 @@
 // Conectarse a y seleccionar una base de datos de MySQL llamada sakila
 // Nombre de host: 127.0.0.1, nombre de usuario: tu_usuario, contraseña: tu_contraseña, bd: sakila.
 
-print "Bienvenido al curso de PHP";
 
-print "Hola alumnos <br>";
 
-print "Hasta el proximo video";
 
 $mysqli = new mysqli('eltrebolautorepuestos.com', 'tfbm89', '1030560485', 'tfbm89_aprendiendo_php');
 

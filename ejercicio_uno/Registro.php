@@ -5,34 +5,46 @@
 </head>
 <body>
 <?php 
-	$server = "eltrebolautorepuestos.com";
-	$usuario = "tfbm89";
-	$contraseña = "1030560485";
-	$bd = "tfbm89_aprendiendo_php";
+	
+		
+		$mysqli = new mysqli('eltrebolautorepuestos.com', 'tfbm89', '1030560485', 'tfbm89_aprendiendo_php');
 
 
-	$conexion = mysqli_connect($server,$usuario,$contraseña,$bd)
-		or die("Error en la conexion ");
+		if ($mysqli->connect_errno) {
+		    // La conexión falló. ¿Que vamos a hacer? 
+		    // Se podría contactar con uno mismo (¿email?), registrar el error, mostrar una bonita página, etc.
+		    // No se debe revelar información delicada
+
+		    // Probemos esto:
+		    echo "Lo sentimos, este sitio web está experimentando problemas.";
+
+		    // Algo que no se debería de hacer en un sitio público, aunque este ejemplo lo mostrará
+		    // de todas formas, es imprimir información relacionada con errores de MySQL -- se podría registrar
+		    echo "Error: Fallo al conectarse a MySQL debido a: \n";
+		    echo "Errno: " . $mysqli->connect_errno . "\n";
+		    echo "Error: " . $mysqli->connect_error . "\n";
+		    
+		    // Podría ser conveniente mostrar algo interesante, aunque nosotros simplemente saldremos
+		    exit;
+		}
+
+		$sql = "INSERT into alumnos (nombre,apellido,curso) values (txtNombre,txtApellido,txtCurso) ";
+
 
 		
-		$nombre = $_POST["txtNombre"];
-		$apellido = $_POST["txtApellido"];
-		$curso = $_POST["txtCurso"];
-	
 
+		if (!$resultado = $mysqli->query($sql)) {
+    // ¡Oh, no! La consulta falló. 
+    echo "Lo sentimos, este sitio web está experimentando problemas.";
 
-
-
-		$insertar = "INSERT into alumnos  values ('$nombre','$apellido','$curso')";
-
-		$insertar = "INSERT into datos values (  '$clave','$nombre','$sexo')";
-
-
-
-		$resultado = mysqli_query($conexion, $insertar) or die ("Error al insertar los registros");
-
-		mysqli_close($conexion);
-		echo "Datos insertados correctamente";
+    // De nuevo, no hacer esto en un sitio público, aunque nosotros mostraremos
+    // cómo obtener información del error
+    echo "Error: La ejecución de la consulta falló debido a: \n";
+    echo "Query: " . $sql . "\n";
+    echo "Errno: " . $mysqli->errno . "\n";
+    echo "Error: " . $mysqli->error . "\n";
+    exit;
+}
 ?>
 </body>
 </html>
