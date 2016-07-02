@@ -21,7 +21,11 @@
 	
 
 
+
+
 		$insertar = "INSERT into alumnos  values ('$nombre','$apellido','$curso')";
+
+		$insertar = "INSERT into datos values (  '$clave','$nombre','$sexo')";
 
 
 
