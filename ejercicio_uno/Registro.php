@@ -28,7 +28,13 @@
 		    exit;
 		}
 
-		$sql = "INSERT into alumnos (nombre,apellido,curso) values (txtNombre,txtApellido,txtCurso) ";
+
+		$nombre = $_POST["txtNombre"];
+		$apellido = $_POST["txtApellido"];
+		$curso = $_POST["txtCurso"];
+	
+
+		$sql = "INSERT into alumnos (nombre,apellido,curso) values ('$nombre','$apellido', '$curso')";
 
 
 		
